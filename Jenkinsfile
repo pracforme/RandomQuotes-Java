@@ -13,13 +13,13 @@ node {
 
         rtMaven = Artifactory.newMavenBuild()
         rtMaven.tool = MAVEN_TOOL // Tool name from Jenkins configuration
-        rtMaven.deployer releaseRepo: 'repo-local-maven', snapshotRepo: 'repo-local-maven', server: server
-        rtMaven.resolver releaseRepo: 'repo-local-maven', snapshotRepo: 'repo-local-maven', server: server
+        //rtMaven.deployer releaseRepo: 'repo-local-maven', snapshotRepo: 'repo-local-maven', server: server
+        //rtMaven.resolver releaseRepo: 'repo-local-maven', snapshotRepo: 'repo-local-maven', server: server
         rtMaven.deployer.deployArtifacts = false // Disable artifacts deployment during Maven run
 
         buildInfo = Artifactory.newBuildInfo()
     }
-    
+
     stage ('Install') {
         rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
     }
