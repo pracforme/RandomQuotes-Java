@@ -3,9 +3,13 @@ node {
     def buildInfo
     def rtMaven
     
+    stage ('Clone') {
+        git url: 'https://github.com/OctopusSamples/RandomQuotes-Java.git'
+    }
+
     stage ('Artifactory configuration') {
         // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
-        server = Artifactory.server artifactory
+        server = Artifactory.server SERVER_ID
 
         rtMaven = Artifactory.newMavenBuild()
         rtMaven.tool = MAVEN_TOOL // Tool name from Jenkins configuration
