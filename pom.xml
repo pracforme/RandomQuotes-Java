@@ -59,7 +59,11 @@
         <java.version>1.8</java.version>
         <finalName>${project.name}.${project.version}</finalName>
     </properties>
-
+<properties>
+         <url>http://13.126.44.218:9000/</url>
+         <username>admin</username>
+         <password>password</password>
+    </properties>
 
     <build>
         <finalName>${finalName}</finalName>
